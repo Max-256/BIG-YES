@@ -1,2 +1,51 @@
 
 @import "normalize.css/normalize.css";
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 768px) {
+    body{
+        font-size: 1.25rem;
+    }
+}
+
+/* navbar */
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    bottom: 0
+}
+
+@media screen and (min-width: 768px) {
+    .navbar{
+        bottom: initial;
+    }
+}
+
+.navItems{
+    width: 100%;
+    white-space: nowrap;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 768px) {
+    .navItems{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .searchNav{
+        margin: auto 5rem;
+    }
+}
+
+.navIcon{
+    font-size: 1.7rem;
+    text-align: center;
+}
