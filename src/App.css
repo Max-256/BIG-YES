@@ -65,6 +65,7 @@ body{
 }
 
 /* market */
+
 .market{
     max-width: 1200px;
     margin: auto;
@@ -73,7 +74,7 @@ body{
 
 @media screen and (min-width: 768px) {
     .market, .search, .myShop{
-        padding-top: 8rem;
+        padding-top: 8rem !important;
     }
 }
 
@@ -114,3 +115,44 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;  
 }
+
+/* search */
+
+.search{
+    text-align: center;
+    padding: 1rem;
+}
+
+.search h1{
+    font-size: x-large;
+    font-weight: 450;
+    margin-top: 4rem;
+}
+
+
+.input-group{
+    border: 1px solid lightgray;
+    display: flex;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    padding: 0.8rem;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 700px;
+    margin: auto;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    flex-grow: 1;
+}
+
+.search button{
+    background: lightgray;
+    border: 0;
+    outline: 0;
+    margin: -1rem;
+    padding: 1rem;
+}
+
