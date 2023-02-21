@@ -11,6 +11,12 @@ function NavBar() {
       <Navbar bg="light" variant="light" className='navbar'>
 
         <Container>
+
+          <NavLink to="/" className="nav-link">
+              <span className='logo'>Wan Duc</span>
+          </NavLink>
+
+
           <Nav className="navItems">
 
             <NavLink to="/market" className="nav-link">

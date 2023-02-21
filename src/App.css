@@ -20,7 +20,8 @@ body{
 .navbar{
     width: 100%;
     position: fixed;
-    bottom: 0
+    bottom: 0;
+    z-index: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -48,4 +49,68 @@ body{
 .navIcon{
     font-size: 1.7rem;
     text-align: center;
+}
+
+/* logo */
+.logo{
+    white-space: nowrap;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 768px) {
+    .logo{
+        display: none;
+    }
+}
+
+/* market */
+.market{
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 6rem;
+}
+
+@media screen and (min-width: 768px) {
+    .market, .search, .myShop{
+        padding-top: 8rem;
+    }
+}
+
+.grid{
+    display: grid;
+}
+
+.grid-1x2{
+    grid-template-columns: repeat(2, 1fr)
+}
+
+@media screen and (min-width: 768px) {
+    .grid-1x3{
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .grid-1x4{
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+
+
+.card {
+    overflow: hidden;
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.good-title{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
 }
