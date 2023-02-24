@@ -3,82 +3,162 @@ import image from '../images/good.jpg';
 
 const goods = [
     {
+        _id: 1,
         image: image,
-        name: "good one",
-        price: "11000"
+        good: "good one",
+        price: "11000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 2,
         image: image,
-        name: "good two",
-        price: "9000"
+        good: "good two",
+        price: "9000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 3,
         image: image,
-        name: "good three",
-        price: "13000 "
+        good: "good three",
+        price: "13000 ",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 4,
         image: image,
-        name: "good four",
-        price: "56000"
+        good: "good four",
+        price: "56000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 5,
         image: image,
-        name: "good five",
-        price: "78000"
+        good: "good five",
+        price: "78000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 6,
         image: image,
-        name: "good six",
-        price: "89000"
+        good: "good six",
+        price: "89000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 7,
         image: image,
-        name: "good seven",
-        price: "60000"
+        good: "good seven",
+        price: "60000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 8,
         image: image,
-        name: "good eight",
-        price: "1000000"
+        good: "good eight",
+        price: "1000000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 9,
         image: image,
-        name: "good nine",
-        price: "67000"
+        good: "good nine",
+        price: "67000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 10,
         image: image,
-        name: "good ten",
-        price: "200000"
+        good: "good ten",
+        price: "200000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 11,
         image: image,
-        name: "good eleven",
-        price: "19000"
+        good: "good eleven",
+        price: "19000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 12,
         image: image,
-        name: "good twelve",
-        price: "12000"
+        good: "good twelve",
+        price: "12000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 13,
         image: image,
-        name: "good thirteen",
-        price: "17000"
+        good: "good thirteen",
+        price: "17000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 14,
         image: image,
-        name: "good forteen",
-        price: "50000"
+        good: "good forteen",
+        price: "50000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     },
     {
+        _id: 15,
         image: image,
-        name: "good fifteen",
-        price: "1000000"
+        good: "good fifteen",
+        price: "1000000",
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi est molestiae repellendus id adipisci odio.",
+        condition: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        seller: "sit amet consectetur",
+        contact: "0777856982"
     }   
 ]
 
 export function getGoods(){
     return goods;
+}
+
+export function getGood(id){
+    const good = goods.filter(g => g._id == id);
+    return good[0];
 }

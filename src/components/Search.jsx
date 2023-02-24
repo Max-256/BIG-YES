@@ -13,11 +13,11 @@ const Search = () => {
 
     return (
         <div className='search'>
-            <h1>Wan Duc Stores</h1>
+            <h1>BIG YES</h1>
             <div className='input-group'>
 
               <input  value={query}
-                      placeholder="enter item"
+                      placeholder="enter item . . ."
                       onChange={handleChange} />
 
               <button className='search-button'

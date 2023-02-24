@@ -13,7 +13,7 @@ function NavBar() {
         <Container>
 
           <NavLink to="/" className="nav-link">
-              <span className='logo'>Wan Duc</span>
+              <span className='logo'>B.Y</span>
           </NavLink>
 
 
