@@ -10,6 +10,8 @@ import GoodDetails from './components/GoodDetails';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import EditGood from './components/EditGood';
+import Login from './components/Login';
+import Register from './components/Register';
 import './App.css';
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/addStock" component={AddStock}/>
           <Route path="/editGood/:id" component={EditGood}/>
           <Route path='/notFound' component={NotFound} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
           <Route path='/' exact component={Home}/>
           <Redirect to="/notFound"/>
         </Switch>

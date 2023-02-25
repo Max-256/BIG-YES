@@ -393,3 +393,69 @@ p{
     text-align: center;
     margin: 1.5rem auto;
 }
+
+/* login */
+.login{
+    max-width: 220px;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: 10rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 0.7rem;
+}
+
+.noAccount {
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
+.link{
+    text-decoration: none;
+    margin-left: 7px;
+}
+
+.login h2{
+    margin-bottom: 1.5rem;
+}
+
+.login input{
+    font-size: 1.4rem;
+}
+
+.login button{
+    font-size: 1.4rem;
+}
+
+/* register */
+
+.register{
+    max-width: 250px;
+    vertical-align: middle;
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin-bottom: 7rem;
+}
+
+.register-head{
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media screen and (min-width: 768px) {
+    .register-head{
+        padding-top: 10rem;
+    }
+}
+
+.register input{
+    font-size: 1.4rem;
+}
+
+.register button{
+    font-size: 1.4rem;
+}
