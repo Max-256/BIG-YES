@@ -12,6 +12,8 @@ import NotFound from './components/NotFound';
 import EditGood from './components/EditGood';
 import Login from './components/Login';
 import Register from './components/Register';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   return (
     <Fragment>
       <Navbar />
-
+      <ToastContainer />
       <main className='container'>
 
         <Switch>

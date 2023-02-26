@@ -4,53 +4,63 @@ import axios from 'axios';
 import Joi from 'joi-browser';
 import useForm from '../hooks/useForm';
 import { Form } from 'react-bootstrap';
+import {toast} from 'react-toastify';
+import { getCurrentUser } from '../services/authService';
+import config from '../config.json';
+import { getJwt } from '../services/authService';
+import { postProduct } from '../services/marketService';
 
 const AddStock = () => {
-    const [imageUrl, setImageUrl] = useState("");
+    const [image, setImageUrl] = useState("");
 
     const formData = {
-        good: "",
-        price: "",
-        description: "",
-        condition: "",   
+          good: "",
+          price: "",
+          description: "",
+          condition: "",   
     };
 
     const formSchema = {
-        good: Joi.string().trim().max(50).required(),
-        price: Joi.number().min(0).required(),
-        description: Joi.string().trim().required(),
-        condition: Joi.string().trim().required()
+          good: Joi.string().trim().max(50).required(),
+          price: Joi.number().min(0).required(),
+          description: Joi.string().trim().required(),
+          condition: Joi.string().trim().required()
     }
-
 
     const doSubmit = async () => {
+        if(!image) return toast.info('please kindly re-attach product image');
+
+        const user = getCurrentUser();
+        const seller = user.username;
+        const contact = user.phoneNumber;
+
         const product = {
-            ...data,
-            imageUrl
+              ...data,
+              image,
+              seller,
+              contact
         };
+        try{
+            await postProduct(product);
+            window.location = "/myShop";
 
-        console.log(product);
-    }
-
-
+        }catch(ex){toast.error(ex.response.data)}
+        
+    };
 
     const uploadImage = async (files) => {
         const formData = new FormData();
         formData.append("file", files[0]);
         formData.append("upload_preset", "maxwell");
 
-        const response = await axios.post("https://api.cloudinary.com/v1_1/dokrhaef5/image/upload", 
-        formData);
+        try{
+            delete axios.defaults.headers.common['x-auth-token'];
+            const response = await axios.post(config.uploadUrl, formData);    
+            setImageUrl(response.data.url);
 
-        setImageUrl(response.data.url);
-    }
-
-
-
-
-
-
-
+            axios.defaults.headers.common['x-auth-token'] = getJwt();
+        } catch(ex){ toast.error('image upload was not succesful'); }       
+    };
 
 
     const {data, renderInput, renderButton, renderTextarea, handleSubmit} = 

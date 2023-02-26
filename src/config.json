@@ -1,0 +1,4 @@
+{
+    "apiUrl": "https://bigyes.herokuapp.com/api",
+    "uploadUrl" : "https://api.cloudinary.com/v1_1/dokrhaef5/image/upload"
+}

@@ -1,10 +1,12 @@
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import useForm from '../hooks/useForm';
 import { Form } from 'react-bootstrap';
+import { register } from '../services/user';
 import Joi from 'joi-browser';
 
 const Register = () => {
+    const [error, setError] = useState({});
 
     const formData = {
           username: "",
@@ -20,17 +22,23 @@ const Register = () => {
           phoneNumber: Joi.number().required(),
           location: Joi.string().trim().max(255).required(),
           password: Joi.string().trim().max(255).required()
+    };   
+
+    const doSubmit = async () => {
+        console.log(256);
+        try{
+            const response = await register(data);
+            localStorage.setItem("token", response.data);
+            console.log(response.data);
+
+        }catch(ex){
+            if(ex.response && ex.response.status === 400)
+            setError({message: ex.response.data});
+        }   
     };
 
-    const doSubmit = () => {
-          console.log(data);
-    };
-
-    
     const {data, renderInput, renderButton, handleSubmit } = 
     useForm(formData, formSchema, doSubmit);
-
-
 
     return (
         <Fragment>
@@ -38,6 +46,7 @@ const Register = () => {
 
             <div className='register'>            
             <Form onSubmit={handleSubmit}>
+            {error && <p className='error'>{error.message}</p> }   
             {renderInput("username", "Username")}
             {renderInput("email", "email")}
             {renderInput("phoneNumber", "Phone", "number")}

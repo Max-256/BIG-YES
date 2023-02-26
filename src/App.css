@@ -459,3 +459,7 @@ p{
 .register button{
     font-size: 1.4rem;
 }
+
+.error{
+    color: red;
+}
