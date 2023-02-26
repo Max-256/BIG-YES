@@ -1,19 +1,36 @@
 
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
-import { getGood, getGoods } from '../services/market';
+import { getProduct, getProducts } from '../services/marketService';
+import {toast} from 'react-toastify';
 
 const GoodDetails = (props) => {
-    const goodId = props.match.params.id;
+    const productId = props.match.params.id;
 
     const [good, setGood] = useState({});
-    useEffect(() => setGood(getGood(goodId)),[goodId]);
+
+    useEffect(() => {
+        (async () => {
+            try{
+                const response = await getProduct(productId);
+                setGood(response.data);
+
+            } catch(ex) {toast.error(ex.response.data)}    
+        })();
+    }, [productId]);
 
     const [related, setRelated] = useState([]);
 
     useEffect(() => {
-        setRelated(getGoods());
-        window.scrollTo(0, 0)},[goodId]);
+        (async () => {
+            try{
+                const response = await getProducts();
+                setRelated(response.data);
+                window.scrollTo(0, 0)
+
+            } catch(ex){toast.error(ex.response.data)}           
+        })();
+    },[productId]);
 
     return (
         <div className='good-details'>
@@ -46,7 +63,7 @@ const GoodDetails = (props) => {
                 <h2>You may also like ...</h2>
                 <div className='market grid grid-1x2 grid-1x3 grid-1x4'>
                 {related.map(good =>
-                <Link to={`/good-details/${good._id}`} className='card m-2'>
+                <Link key={good._id} to={`/good-details/${good._id}`} className='card m-2'>
                    <img src={good.image} alt=""/>
                    <div className='card-body'>
                     <span className='good-title'>{good.good}</span>

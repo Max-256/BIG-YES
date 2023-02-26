@@ -1,20 +1,28 @@
 
 import React, { useEffect, useState } from 'react';
-import { getGoods } from '../services/market';
 import {MdOutlineEditNote} from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import {getProducts} from '../services/marketService';
+import { toast } from 'react-toastify';
 
 const MyShop = () => {
 
     const [goods, setGoods] = useState([]);
 
-    useEffect(() => setGoods(getGoods()),[]);
+    useEffect(() => {
+      (async() => {
+          try{
+            const response = await getProducts();
+            setGoods(response.data);
+
+          }catch(ex){toast.error(ex.response.data)}            
+      })();
+    }, []);
 
     const handleDelete = (id) => {
       console.log(`delete ${id}`);
     }
 
-    
     return (
         <div className='myShop'>
 
@@ -26,7 +34,7 @@ const MyShop = () => {
 
            <div className='shelves'>
             {goods.map( good => 
-              <div className='row shopItem'>
+              <div key={good._id} className='row shopItem'>
 
               <div className='col'><img src={good.image} alt="" /></div>
 
