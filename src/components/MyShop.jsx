@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import {MdOutlineEditNote} from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import {getProducts} from '../services/marketService';
+import {deleteProduct, getProducts} from '../services/marketService';
 import { toast } from 'react-toastify';
 
 const MyShop = () => {
@@ -19,8 +19,12 @@ const MyShop = () => {
       })();
     }, []);
 
-    const handleDelete = (id) => {
-      console.log(`delete ${id}`);
+    const handleDelete = async (id) => {
+      try{
+        await deleteProduct(id);
+        window.location.reload();
+
+      } catch(ex){toast.error(ex.response.data)}    
     }
 
     return (

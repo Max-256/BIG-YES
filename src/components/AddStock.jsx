@@ -8,7 +8,8 @@ import {toast} from 'react-toastify';
 import { getCurrentUser } from '../services/authService';
 import config from '../config.json';
 import { getJwt } from '../services/authService';
-import { postProduct } from '../services/marketService';
+import { postProduct} from '../services/marketService';
+import {resizeFile, dataURIToBlob } from '../services/fileResizer';
 
 const AddStock = () => {
     const [image, setImageUrl] = useState("");
@@ -41,7 +42,7 @@ const AddStock = () => {
               contact
         };
         try{
-            await postProduct(product);
+            await postProduct(product);    
             window.location = "/myShop";
 
         }catch(ex){toast.error(ex.response.data)}
@@ -50,7 +51,12 @@ const AddStock = () => {
 
     const uploadImage = async (files) => {
         const formData = new FormData();
-        formData.append("file", files[0]);
+
+        const testFile = await resizeFile(files[0]);
+        console.log(testFile);
+        const opMax = dataURIToBlob(testFile);
+
+        formData.append("file", opMax);
         formData.append("upload_preset", "maxwell");
 
         try{
@@ -59,7 +65,11 @@ const AddStock = () => {
             setImageUrl(response.data.url);
 
             axios.defaults.headers.common['x-auth-token'] = getJwt();
-        } catch(ex){ toast.error('image upload was not succesful'); }       
+
+        } catch(ex){ 
+            toast.error('image upload was not succesful');
+            console.log(ex.response.data);
+         }       
     };
 
 
@@ -75,13 +85,6 @@ const AddStock = () => {
             <Form onSubmit={handleSubmit} className="productForm" >
                 {renderInput("good", "Product Name")}
 
-
-
-
-
-
-
-
                 <div className='upload'>
                   <label htmlFor="camera">                    
                     <i className="fa fa-2x fa-camera"></i>
@@ -89,22 +92,10 @@ const AddStock = () => {
                            onChange={e => uploadImage(e.target.files)}
                            id='camera' 
                            type="file" 
-                           accept="image/png, image/jpg, image/gif, image/jpeg" 
+                           accept="image/png, image/jpg, image/gif, image/jpeg, image/webp" 
                            required />
                   </label>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
                 {renderInput("price", "Price", "Number")}
                 {renderTextarea("description", "Product Description")}

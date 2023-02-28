@@ -13,4 +13,8 @@ export function getProducts(){
 
 export function getProduct(productId){
     return http.get(apiEndpoint + "/" + productId);
+} 
+
+export function deleteProduct(productId){
+    return http.delete(apiEndpoint + "/" + productId);
 }

@@ -127,9 +127,15 @@ p{
 /* market */
 
 .market{
-    max-width: 1200px;
+    max-width: 950px;
     margin: auto;
     margin-bottom: 6rem;
+}
+
+@media screen and (max-width: 768px) {
+    .market{
+        max-width: 400px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -151,7 +157,7 @@ p{
 }
 
 .grid-1x2{
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (min-width: 768px) {
@@ -170,10 +176,10 @@ p{
     overflow: hidden;
     text-decoration: none;
     color: #918ca4;
+    padding: 0.5rem;
 }
 
 .card img{
-    height: 100%;
     width: 100%;
 }
 
@@ -257,9 +263,7 @@ p{
 
 .shopItem img{
     width: 100%;
-    height: 100%;
     max-width: 300px;
-    max-height: 300px;
 }
 
 .item-buttons{
