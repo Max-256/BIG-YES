@@ -33,7 +33,7 @@ const MyShop = () => {
            <div className='shopHeader'>
                 <h1>BIG YES</h1>
                 <Link to='/addStock' 
-                      className='btn btn-primary'> + Add Stock</Link>
+                      className='btn btn-primary add'> + Add Stock</Link>
            </div>
 
            <div className='shelves'>

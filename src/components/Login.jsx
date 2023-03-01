@@ -6,7 +6,7 @@ import Joi from 'joi-browser';
 import useForm from '../hooks/useForm';
 import { login } from '../services/authService';
 
-const Login = () => {
+const Login = (props) => {
     const [error, setError] = useState({});
 
     const formData = {
@@ -23,7 +23,10 @@ const Login = () => {
         try{
             const response = await login(data.email, data.password);
             localStorage.setItem("token", response.data);
-            console.log(response.data);
+
+            const {state} = props.location;
+            window.location = state ? state.from.pathname : "/myShop";
+            
         }catch(ex){
             if(ex.response && ex.response.status === 400)
             setError({message: ex.response.data});
@@ -35,9 +38,11 @@ const Login = () => {
 
     return (
         <Fragment>
+
+        <h2 className='login-shop-heading'>BIG YES SHOP</h2>
+
         <div className='login'>
             
-            <h2>Login</h2>
             <Form onSubmit={handleSubmit}>
             {error && <p className='error' >{error.message}</p> }
             {renderInput("email", "email")}
@@ -45,8 +50,8 @@ const Login = () => {
             {renderButton("login")}
             </Form>
         </div>
-            <p className='noAccount'>Don't have an account?
-            <Link className='link' to="/register">sign-up</Link> 
+            <p className='noAccount'>Don't have a shop yet?
+            <Link className='link' to="/register">create one</Link> 
             
             </p>
         </Fragment>

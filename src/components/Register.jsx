@@ -42,7 +42,7 @@ const Register = () => {
 
     return (
         <Fragment>
-            <h2 className='register-head'>BIG YES ACCOUNT</h2>
+            <h2 className='register-head'>BIG YES SHOP</h2>
 
             <div className='register'>            
             <Form onSubmit={handleSubmit}>

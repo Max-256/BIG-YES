@@ -18,3 +18,7 @@ export function getProduct(productId){
 export function deleteProduct(productId){
     return http.delete(apiEndpoint + "/" + productId);
 }
+
+export function putProduct(productId, product){
+    return http.put(apiEndpoint + "/" + productId, product);
+}

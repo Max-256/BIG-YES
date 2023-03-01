@@ -187,7 +187,7 @@ p{
     display: block;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;  
+    text-overflow: ellipsis; 
 }
 
 /* search */
@@ -242,8 +242,6 @@ p{
 }
 
 
-
-
 .shopHeader{
     border-bottom: 1px dotted lightgray;
     padding: 1rem;
@@ -270,7 +268,8 @@ p{
     margin-top: 1.5rem;
 }
 
-.edit, .delete{
+.edit, .delete, .add{
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 0.5rem; 
 }
@@ -304,6 +303,7 @@ p{
 
 .notFound{
     text-align: center;
+    padding-top: 5rem;
 }
 
 /* good-details */
@@ -399,19 +399,31 @@ p{
 }
 
 /* login */
+.login-shop-heading{
+    padding-top: 7rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .login{
     max-width: 220px;
     vertical-align: middle;
     margin: auto;
-    margin-top: 10rem;
     border: 1px solid lightgray;
     border-radius: 5px;
     padding: 0.7rem;
 }
 
+@media screen and (min-width: 768px) {
+    .login-shop-heading{
+        padding-top: 15rem;
+    }
+}
+
 .noAccount {
     text-align: center;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
 }
 
 .link{
@@ -466,4 +478,35 @@ p{
 
 .error{
     color: red;
+}
+
+/* editGood */
+
+.editGood{
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    margin-bottom: 7rem;
+}
+
+.editGood input { 
+    font-size: 1.4rem;
+}
+
+.editGood textarea { 
+    font-size: 1.4rem;
+}
+
+.editGood button{
+    font-size: 1.4rem;
+}
+
+.editImage{
+    max-width: 300px;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.editImage img{
+    width: 100%;
 }
