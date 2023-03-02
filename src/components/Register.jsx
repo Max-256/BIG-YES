@@ -1,4 +1,3 @@
-
 import React, { Fragment, useState } from 'react';
 import useForm from '../hooks/useForm';
 import { Form } from 'react-bootstrap';
@@ -25,11 +24,10 @@ const Register = () => {
     };   
 
     const doSubmit = async () => {
-        console.log(256);
         try{
             const response = await register(data);
             localStorage.setItem("token", response.data);
-            console.log(response.data);
+            window.location = '/myShop';
 
         }catch(ex){
             if(ex.response && ex.response.status === 400)
@@ -47,7 +45,7 @@ const Register = () => {
             <div className='register'>            
             <Form onSubmit={handleSubmit}>
             {error && <p className='error'>{error.message}</p> }   
-            {renderInput("username", "Username")}
+            {renderInput("username", "Username / Shopname")}
             {renderInput("email", "email")}
             {renderInput("phoneNumber", "Phone", "number")}
             {renderInput("location", "location")}

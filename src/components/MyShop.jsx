@@ -1,23 +1,26 @@
-
 import React, { useEffect, useState } from 'react';
-import {MdOutlineEditNote} from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import {deleteProduct, getProducts} from '../services/marketService';
 import { toast } from 'react-toastify';
+import {MdLogout} from 'react-icons/md';
+import { getCurrentUser } from '../services/authService';
+import ShopShelves from './ShopShelves';
 
 const MyShop = () => {
-
     const [goods, setGoods] = useState([]);
+    const user = getCurrentUser();
 
     useEffect(() => {
       (async() => {
           try{
             const response = await getProducts();
-            setGoods(response.data);
+            const results = response.data;
+            const filtered = results.filter(pdt => pdt.contact === user.phoneNumber);
+            setGoods(filtered);
 
           }catch(ex){toast.error(ex.response.data)}            
       })();
-    }, []);
+    }, [user.phoneNumber]);
 
     const handleDelete = async (id) => {
       try{
@@ -27,32 +30,26 @@ const MyShop = () => {
       } catch(ex){toast.error(ex.response.data)}    
     }
 
+    const handleLogout = () => {
+      localStorage.removeItem("token");
+      window.location = '/login'
+    }
+
     return (
         <div className='myShop'>
 
            <div className='shopHeader'>
-                <h1>BIG YES</h1>
-                <Link to='/addStock' 
-                      className='btn btn-primary add'> + Add Stock</Link>
+                <h2>BIG YES</h2>
+                <Link to='/addStock' className='btn btn-primary add'> + Add Stock</Link>
            </div>
 
-           <div className='shelves'>
-            {goods.map( good => 
-              <div key={good._id} className='row shopItem'>
+          {goods.length <= 0 && <p>Your shop is empty. please add stock to get started</p> }
+          {goods.length > 0 && <ShopShelves goods={goods} handleDelete={handleDelete} /> }
 
-              <div className='col'><img src={good.image} alt="" /></div>
-
-              <div className='col'>
-                    <li>{good.good}</li>
-                    <li>UGX. {good.price}</li>
-                    <li className='item-buttons'>
-                        <Link to={`/editGood/${good._id}`} 
-                              className='btn btn-primary edit'>edit <MdOutlineEditNote/></Link>
-                        <span className='btn btn-danger delete' 
-                              onClick={() => handleDelete(good._id)}>Remove</span></li>
-              </div>                
-              </div>)}            
-           </div> 
+          <div className='logout' >
+          <div>{user.username}</div>
+          <div className='out-icon' onClick={handleLogout}>Logout <MdLogout /></div>
+          </div>
 
         </div>);
 };

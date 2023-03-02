@@ -34,12 +34,14 @@ const AddStock = () => {
         const user = getCurrentUser();
         const seller = user.username;
         const contact = user.phoneNumber;
+        const location = user.location;
 
         const product = {
               ...data,
               image,
               seller,
-              contact
+              contact,
+              location
         };
         try{
             await postProduct(product);    
@@ -52,11 +54,10 @@ const AddStock = () => {
     const uploadImage = async (files) => {
         const formData = new FormData();
 
-        const testFile = await resizeFile(files[0]);
-        console.log(testFile);
-        const opMax = dataURIToBlob(testFile);
+        const resizedFileUri = await resizeFile(files[0]);
+        const resizedFile = dataURIToBlob(resizedFileUri);
 
-        formData.append("file", opMax);
+        formData.append("file", resizedFile);
         formData.append("upload_preset", "maxwell");
 
         try{
@@ -72,10 +73,8 @@ const AddStock = () => {
          }       
     };
 
-
     const {data, renderInput, renderButton, renderTextarea, handleSubmit} = 
     useForm(formData, formSchema, doSubmit);
-
 
     return (
         <div className='addStock'>

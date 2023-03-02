@@ -10,6 +10,7 @@
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -241,7 +242,6 @@ p{
     list-style: none;
 }
 
-
 .shopHeader{
     border-bottom: 1px dotted lightgray;
     padding: 1rem;
@@ -253,10 +253,11 @@ p{
     font-weight: bold;
 }
 
-.shopHeader h1{
+.shopHeader h2{
     font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
     margin-bottom: 1rem;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
 
 .shopItem img{
@@ -509,4 +510,33 @@ p{
 
 .editImage img{
     width: 100%;
+}
+
+.logout{
+    margin-bottom: 6rem;
+    padding: 2rem;
+    transition: 300ms;
+    text-align: end; 
+}
+
+.out-icon{
+    color: #1b0760;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.logout:hover{
+    color: black;
+}
+
+.search-by{
+    margin: 2rem auto;
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 768px) {
+    .search-by{
+        margin-bottom: -3rem;
+    }
 }

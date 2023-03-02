@@ -39,7 +39,7 @@ const Login = (props) => {
     return (
         <Fragment>
 
-        <h2 className='login-shop-heading'>BIG YES SHOP</h2>
+        <h2 className='login-shop-heading'>Login to yor shop</h2>
 
         <div className='login'>
             
