@@ -46,7 +46,8 @@ const MyShop = () => {
                 <Link to='/addStock' className='btn btn-primary add'> + Add Stock</Link>
            </div>
           {loading && <Spinner />}
-          {!loading &&  goods.length <= 0 && <p>Your shop is empty. please add stock to get started</p> }
+          {!loading &&  goods.length <= 0 && <p>Your shop is empty. please add stock to get started <br />
+          Tip: Images give the best impression. focus the product in the center and upload the best image.</p> }
           {!loading && goods.length > 0 && <ShopShelves goods={goods} handleDelete={handleDelete} /> }
 
           {!loading && <div className='footer'>
