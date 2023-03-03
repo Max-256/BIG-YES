@@ -47,25 +47,14 @@ const MyShop = () => {
            </div>
           {loading && <Spinner />}
 
-
-
-
-          {!loading && goods.length <= 0 && <div>
-            <p>Your shop is empty. Follow the tips below and add Stock.</p>
-            Tips: 
-                <li>Ensure the picture size or ratio in the camera is <strong>1:1</strong> , can be adjusted in the settings of the camera.</li>
-                <li>Use a white/ whitish or a clear and attractive background when taking the product image with your camera.</li>
-                <li>Take the real picture of the real product you want to sell using your phone camera.</li>
-
-                <p>"We help you sell easily with just your phone"</p> 
+          {!loading && goods.length <= 0 && <div className='tips'>
+            <p>Your shop is empty. Follow guides below before adding any Stock.</p>
+            <p className='important'>IMPORTANT!:</p> 
+                <li>Picture size or ratio in the camera must be <strong>1:1</strong> (see camera settings)</li>
+                <li>Use a white or an attractive background for pictures</li>
+                <li>Take the real picture of the product on sale using your phone camera.</li>
+ 
           </div>}
-
-
-
-
-
-
-
 
           {!loading && goods.length > 0 && <ShopShelves goods={goods} handleDelete={handleDelete} /> }
 
