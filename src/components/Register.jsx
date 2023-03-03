@@ -47,7 +47,7 @@ const Register = () => {
             {error && <p className='error'>{error.message}</p> }   
             {renderInput("username", "Username / Shopname")}
             {renderInput("email", "email")}
-            {renderInput("phoneNumber", "Phone", "number")}
+            {renderInput("phoneNumber", "Phone (for business)", "number")}
             {renderInput("location", "location")}
             {renderInput("password", "password", "password")}
             {renderButton("Create Account")}

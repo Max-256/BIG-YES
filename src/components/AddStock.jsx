@@ -10,9 +10,11 @@ import config from '../config.json';
 import { getJwt } from '../services/authService';
 import { postProduct} from '../services/marketService';
 import {resizeFile, dataURIToBlob } from '../services/fileResizer';
+import Bar from './common/Bar';
 
 const AddStock = () => {
     const [image, setImageUrl] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const formData = {
           good: "",
@@ -62,8 +64,10 @@ const AddStock = () => {
 
         try{
             delete axios.defaults.headers.common['x-auth-token'];
+            setLoading(true);
             const response = await axios.post(config.uploadUrl, formData);    
             setImageUrl(response.data.url);
+            setLoading(false);
 
             axios.defaults.headers.common['x-auth-token'] = getJwt();
 
@@ -84,6 +88,7 @@ const AddStock = () => {
             <Form onSubmit={handleSubmit} className="productForm" >
                 {renderInput("good", "Product Name")}
 
+                {loading && <Bar />}
                 <div className='upload'>
                   <label htmlFor="camera">                    
                     <i className="fa fa-2x fa-camera"></i>

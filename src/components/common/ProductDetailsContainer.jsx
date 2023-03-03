@@ -3,7 +3,7 @@ import React from 'react';
 const ProductDetailsContainer = ({good}) => {
     return (
         <div className='details-grid'>
-                <div>
+                <div className="details-image">
                     <img src={good.image} alt="" />
                 </div>
                 <div>
@@ -21,7 +21,7 @@ const ProductDetailsContainer = ({good}) => {
                    <h3>Contact Seller</h3>
                    <div className='row'>
                    <span className='col'>{good.seller}</span>
-                   <span className='col'>{good.contact}</span>
+                   <span className='col'>0{good.contact}</span>
                    </div>
                 </div>
             </div>
