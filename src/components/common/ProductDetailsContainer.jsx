@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatPrice } from '../../services/marketService';
 
 const ProductDetailsContainer = ({good}) => {
     return (
@@ -9,7 +10,7 @@ const ProductDetailsContainer = ({good}) => {
                 <div>
                    <div className='row'>
                    <span className='col'><h3>Item:</h3>{good.good}</span>
-                   <span className='col'><h3>Price:</h3>UGX. {good.price}</span>
+                   <span className='col'><h3>Price:</h3>{formatPrice(good)}</span>
                    </div>
 
                    <h3>Condition:</h3>

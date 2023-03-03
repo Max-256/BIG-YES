@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../../services/marketService';
 
 const GoodsContainer = ({goods}) => {
-
-    const formatPrice = (good) => {
-        const result = (good.price).toLocaleString('en-US', { 
-            style: 'currency', 
-            currency: 'UGX' 
-        });
-
-        return result;
-    }
 
     return (
         <div className='market grid grid-1x2 grid-1x3 grid-1x4'>

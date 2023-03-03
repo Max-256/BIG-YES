@@ -22,3 +22,11 @@ export function deleteProduct(productId){
 export function putProduct(productId, product){
     return http.put(apiEndpoint + "/" + productId, product);
 }
+
+export function formatPrice (good) {
+    const result = (good.price).toLocaleString('en-US', { 
+        style: 'currency', 
+        currency: 'UGX' 
+    });
+    return result;
+}

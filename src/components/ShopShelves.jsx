@@ -1,8 +1,10 @@
 import React from 'react';
 import {MdOutlineEditNote} from 'react-icons/md';
+import { formatPrice } from '../services/marketService';
 import { Link } from 'react-router-dom';
 
 const ShopShelves = ({goods, handleDelete}) => {
+    
     return (
         <div className='shelves'>
             {goods.map( good => 
@@ -12,7 +14,7 @@ const ShopShelves = ({goods, handleDelete}) => {
 
               <div className='col'>
                     <li>{good.good}</li>
-                    <li>UGX. {good.price}</li>
+                    <li>{formatPrice(good)}</li>
                     <li className='item-buttons'>
                         <Link to={`/editGood/${good._id}`} 
                               className='btn btn-primary edit'>edit <MdOutlineEditNote/></Link>
