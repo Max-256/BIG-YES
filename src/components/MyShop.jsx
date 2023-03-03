@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {deleteProduct, getProducts} from '../services/marketService';
 import { toast } from 'react-toastify';
 import { getCurrentUser } from '../services/authService';
