@@ -175,13 +175,15 @@ p{
 
 .card {
     overflow: hidden;
+    padding: 0.3rem;
+    border: 1px solid lightgray;
     text-decoration: none;
-    color: #918ca4;
-    padding: 0.5rem;
 }
 
 .card img{
     width: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 .good-title{
@@ -189,6 +191,7 @@ p{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
+    color: #918ca4;
 }
 
 /* search */
