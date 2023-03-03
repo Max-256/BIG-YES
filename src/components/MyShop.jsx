@@ -46,8 +46,27 @@ const MyShop = () => {
                 <Link to='/addStock' className='btn btn-primary add'> + Add Stock</Link>
            </div>
           {loading && <Spinner />}
-          {!loading &&  goods.length <= 0 && <p>Your shop is empty. please add stock to get started <br />
-          Tip: Images give the best impression. focus the product in the center and upload the best image.</p> }
+
+
+
+
+          {!loading && goods.length <= 0 && <div>
+            <p>Your shop is empty. Follow the tips below and add Stock.</p>
+            Tips: 
+                <li>Ensure the picture size or ratio in the camera is <strong>1:1</strong> , can be adjusted in the settings of the camera.</li>
+                <li>Use a white/ whitish or a clear and attractive background when taking the product image with your camera.</li>
+                <li>Take the real picture of the real product you want to sell using your phone camera.</li>
+
+                <p>"We help you sell easily with just your phone"</p> 
+          </div>}
+
+
+
+
+
+
+
+
           {!loading && goods.length > 0 && <ShopShelves goods={goods} handleDelete={handleDelete} /> }
 
           {!loading && <div className='footer'>
