@@ -577,6 +577,7 @@ p{
 
 .important{
     opacity: 1;
+    font-weight: bold;
 }
 
 .tips li{
