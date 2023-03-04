@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useLayoutEffect, useState } from 'react';
 import {toast} from 'react-toastify';
 import { getProducts } from '../services/marketService';
 import GoodsContainer from './common/GoodsContainer';
@@ -8,7 +8,7 @@ const Market = () => {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         (async() => {
            try{
             const response = await getProducts();
