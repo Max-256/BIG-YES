@@ -1,17 +1,12 @@
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../../services/marketService';
-import axios from 'axios';
-import Spinner from './Spinner';
-import { useState } from 'react';
 
 const GoodsContainer = ({goods}) => {
     return (
         <div className='market grid grid-1x2 grid-1x3 grid-1x4'>
             {goods.map(good =>                  
                 <Link key={good._id} to={`/good-details/${good._id}`}  className='card m-2'>
-
-                 {loading && <Spinner />}
-                 {!loading && <img src={good.image} alt="" />}      
+                  <img src={good.image} alt="" />      
                             
                 <div className='card-body'>                 
                   <span className='good-title'>{good.good}</span>
